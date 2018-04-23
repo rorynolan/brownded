@@ -1,0 +1,30 @@
+Package: brownded
+Title: Simulate bounded Brownian motion.
+Version: 0.0.0.9000
+Authors@R: c(person("Rory", "Nolan", email = "rorynoolan@gmail.com", 
+                    role = c("aut", "cre")),
+             person("Sergi", "Padilla-Parra", email = "spadilla@well.ox.ac.uk",
+                    role = c("ths")))
+Description: Simulate bounded Brownian motion in any number of dimensions. 
+    The particles are 'in a box' making elastic collisions with the walls. 
+    Includes functionality for simulating images from diffusing fluorescent 
+    particles.
+Depends: R (>= 3.4.2)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: purrr,
+    tibble,
+    assertr,
+    dplyr,
+    ijtiff,
+    magrittr,
+    filesstrings,
+    stats,
+    janitor
+RoxygenNote: 6.0.1
+Suggests: testthat,
+    knitr,
+    rmarkdown
+Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr
