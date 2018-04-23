@@ -11,9 +11,9 @@
 #' the dimensions of the space used during the simulation and the bleaching rate (see [bbm_bleach_simulation()]).
 #'
 #' @param tbl An appropriate [tibble][tibble::tibble()].
-#' @param `sim_D` The diffusivity constant used during the simulation which
+#' @param sim_D The diffusivity constant used during the simulation which
 #'   created `tbl`.
-#' @param `sim_dim` The dimensions of the space used during the simulation which
+#' @param sim_dim The dimensions of the space used during the simulation which
 #'   created `tbl`.
 #' @param bleach_rate The bleaching rate (see [bbm_bleach_simulation()]).
 #'

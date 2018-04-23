@@ -4,7 +4,7 @@
 #' removed at a given time-point, it never returns.
 #'
 #' @param sim An object of class [bbm_sim][bbm_sim_class()]: the output of a
-#'   [bbm_sim()].
+#'   [bbm_simulate()].
 #' @param rate The rate at which the bleaching should occur. Each particle has
 #'   probability `rate` of being removed for the next frame. I.e. `rate` must be
 #'   between 0 aand 1 and a low `rate` means not much bleaching, whereas a high

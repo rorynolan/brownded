@@ -9,13 +9,13 @@ bbm_sim_class(tbl, sim_D, sim_dim, bleach_rate = 0)
 \arguments{
 \item{tbl}{An appropriate \link[tibble:tibble]{tibble}.}
 
+\item{sim_D}{The diffusivity constant used during the simulation which
+created \code{tbl}.}
+
+\item{sim_dim}{The dimensions of the space used during the simulation which
+created \code{tbl}.}
+
 \item{bleach_rate}{The bleaching rate (see \code{\link[=bbm_bleach_simulation]{bbm_bleach_simulation()}}).}
-
-\item{`sim_D`}{The diffusivity constant used during the simulation which
-created \code{tbl}.}
-
-\item{`sim_dim`}{The dimensions of the space used during the simulation which
-created \code{tbl}.}
 }
 \value{
 An object of class \code{bbm_sim}.

@@ -115,8 +115,8 @@ coords_to_arr <- function(df, missing_value = NA, check_duplicates = TRUE) {
 #' bleached by a fraction `frac` relative to the first time-point
 #'
 #' @param frac A number. The fraction of bleaching desired for the final
-#'   time-point relative to the first. So if you want 20% bleaching by the final
-#'   time-point (i.e. 80% of fluorescence remains), set `frac = 0.2`.
+#'   time-point relative to the first. So if you want 20\% bleaching by the final
+#'   time-point (i.e. 80\% of fluorescence remains), set `frac = 0.2`.
 #' @param n_time_points A natural number. The number of time-points in the
 #'   simulation.
 #'
@@ -126,6 +126,6 @@ coords_to_arr <- function(df, missing_value = NA, check_duplicates = TRUE) {
 #' bleach_fraction_to_rate(0.2, 1000)  # 20% bleaching over 1000 time-points
 #'
 #' @export
-bleach_fraction_to_rate <- function(frac, n_frames) {
-  1 - (1 - frac) ^ (1 / n_frames)
+bleach_fraction_to_rate <- function(frac, n_time_points) {
+  1 - (1 - frac) ^ (1 / n_time_points)
 }

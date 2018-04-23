@@ -9,7 +9,7 @@ bbm_simulation_to_img(bbms, pixel_size, method = c("count", "poisson"),
 }
 \arguments{
 \item{bbms}{An object of class \link[=bbm_sim_class]{bbm_sim}; the result of a
-simulation with \code{\link[=bbm_sim]{bbm_sim()}}. This must be 2-dimensional.}
+simulation with \code{\link[=bbm_simulate]{bbm_simulate()}}. This must be 2-dimensional.}
 
 \item{pixel_size}{The pixel size for the image. A grid of pixels is filled
 out over the simulation space, starting at the bottom-left (the origin).
@@ -36,7 +36,7 @@ duplicate coordinate will count.}
 An \link[ijtiff:ijtiff_img]{ijtiff_img}.
 }
 \description{
-Given an output of \code{\link[=bbm_sim]{bbm_sim()}}, create an image in the style of an
+Given an output of \code{\link[=bbm_simulate]{bbm_simulate()}}, create an image in the style of an
 \link[ijtiff:ijtiff_img]{ijtiff_img} where each frame represents a time-point in
 the simulation. You must set the pixel size and there is the option for the
 pixel values to be counts of the number of molecules in that pixel, or

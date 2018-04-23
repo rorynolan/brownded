@@ -7,7 +7,9 @@ test_that("bbm_sim_class() works", {
     structure(sim_dim = 3, sim_D = 1)
   ans <- tbl
   class(ans) %<>% c("bbm_sim", .)
-  expect_equal(bbm_sim_class(tbl, sim_dim = 3, sim_D = 1), ans)
+  expect_equal(bbm_sim_class(tbl, sim_dim = 3, sim_D = 1), ans,
+               check.attributes = FALSE)
+  expect_equal(class(ans), class(bbm_sim_class(tbl, sim_dim = 3, sim_D = 1)))
   expect_error(bbm_sim_class(dplyr::rename(tbl, eyedee = "id"),
                              sim_dim = 3, sim_D = 1),
                "second column.*must be named 'id'")

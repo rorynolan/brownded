@@ -85,7 +85,7 @@ one_dim_simulate_one <- function(positions, boundary, D, time_interval) {
   assert_number(time_interval, lower = 0)
   if (time_interval == 0) stop("time_interval must be greater than zero.")
   sigma <- sqrt(2 * D * time_interval)
-  moves <- rnorm(length(positions), sd = sigma) %% (2 * boundary)
+  moves <- stats::rnorm(length(positions), sd = sigma) %% (2 * boundary)
   positions %<>% {. + moves}
   indices <- which(positions < -boundary)  ## leftleft indices
   positions[indices] %<>% {. + 2 * boundary}

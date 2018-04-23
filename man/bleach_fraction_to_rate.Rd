@@ -4,12 +4,12 @@
 \alias{bleach_fraction_to_rate}
 \title{Convert a bleaching fraction to a bleaching rate}
 \usage{
-bleach_fraction_to_rate(frac, n_frames)
+bleach_fraction_to_rate(frac, n_time_points)
 }
 \arguments{
 \item{frac}{A number. The fraction of bleaching desired for the final
-time-point relative to the first. So if you want 20% bleaching by the final
-time-point (i.e. 80% of fluorescence remains), set \code{frac = 0.2}.}
+time-point relative to the first. So if you want 20\% bleaching by the final
+time-point (i.e. 80\% of fluorescence remains), set \code{frac = 0.2}.}
 
 \item{n_time_points}{A natural number. The number of time-points in the
 simulation.}

@@ -1,13 +1,13 @@
 #' Create an image series from a `bbm_sim`.
 #'
-#' Given an output of [bbm_sim()], create an image in the style of an
+#' Given an output of [bbm_simulate()], create an image in the style of an
 #' [ijtiff_img][ijtiff::ijtiff_img] where each frame represents a time-point in
 #' the simulation. You must set the pixel size and there is the option for the
 #' pixel values to be counts of the number of molecules in that pixel, or
 #' Poisson photon counts where each particle has a user-defined brightness.
 #'
 #' @param bbms An object of class [bbm_sim][bbm_sim_class]; the result of a
-#'   simulation with [bbm_sim()]. This must be 2-dimensional.
+#'   simulation with [bbm_simulate()]. This must be 2-dimensional.
 #' @param pixel_size The pixel size for the image. A grid of pixels is filled
 #'   out over the simulation space, starting at the bottom-left (the origin).
 #'   Any pixels crossing the boundary of the simulation are discarded.
@@ -55,7 +55,7 @@ bbm_simulation_to_img <- function(bbms, pixel_size,
          "* Choose either \"count\" or \"poisson\".")
   }
   assert_string(method)
-  method %<>% RSAGA::match.arg.ext(c("count", "poisson"), ignore.case = TRUE)
+  method %<>% filesstrings::match_arg(c("count", "poisson"), ignore_case = TRUE)
   if (method == "poisson") {
     if (is.null(brightness)) {
       stop("When you select `method = \"poisson\"`, you must specify ",
@@ -86,8 +86,9 @@ bbm_simulation_to_img <- function(bbms, pixel_size,
     bbms %<>% dplyr::bind_rows(extreme_point, .)
   }
   if (method == "poisson") {
-    bbms %<>% dplyr::mutate(pixel_value = rpois(nrow(.),
-                                                pixel_value * brightness))
+    bbms %<>%
+      dplyr::mutate(pixel_value = stats::rpois(nrow(.),
+                    pixel_value * brightness))
   }
   img <- dplyr::rename(bbms, x1 = "px_vertical", x2 = "px_horizontal",
                        x3 = "t", value = "pixel_value") %>%
@@ -242,7 +243,7 @@ bbm_simulate_img <- function(n_particles, D, dim, time_interval = 1, end_time,
     i <- i + 1
   }
   out <- unlist(frames)
-  if (method == "poisson") out %<>% {rpois(length(.), . * brightness)}
+  if (method == "poisson") out %<>% {stats::rpois(length(.), . * brightness)}
   dim(out) <- c(dim(frames[[1]]), 1, length(frames))
   ijtiff::ijtiff_img(out)
 }
